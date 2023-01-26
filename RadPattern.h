@@ -4,6 +4,8 @@
 
 class RadPattern
 {
+private:
+    virtual void drowAntenna() {};
 public:
     //! \n Radiation pattern function of direction
     //! \param az azimuth
@@ -12,16 +14,19 @@ public:
     virtual double getPattern(double thetaX, double thetaY) { return 0; };
 
     virtual ~RadPattern() = default;
-
+public:
     //! radiation pattern visualization
     void init();
 };
 
 class RadLinearPattern: public RadPattern{
 private:
+    void drowAntenna() override;
+
     double m_d;
     int m_n;
     double m_freq;
+
 public:
     //! \param d distance between array elements
     //! \param n number of elements
@@ -35,6 +40,8 @@ public:
 
 class RadFlatPattern: public RadPattern{
 private:
+    void drowAntenna() override;
+
     double m_dX;
     double m_dY;
     int m_nX;
