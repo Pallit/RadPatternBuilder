@@ -37,7 +37,7 @@ void RadFlatPattern::drowAntenna()
     std::ofstream antenna("../antenna.dat");
     for (int i = 0; i < m_nX; ++i)
         for (int j = 0; j < m_nY; ++j){
-            antenna << 0 << " " << i * m_dX - 0.5 * (m_nX - 1) * m_dX << " " << j * m_dY - 0.5 * (m_nY - 1) * m_dY << '\n';
+            antenna << 0 << " " << j * m_dY - 0.5 * (m_nY - 1) * m_dY << " " << i * m_dX - 0.5 * (m_nX - 1) * m_dX << '\n';
         }
     antenna.close();
 }
